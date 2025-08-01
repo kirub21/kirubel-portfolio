@@ -289,6 +289,36 @@ body.dark-mode .card h3 {
   color: #38bdf8;
 }
 
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.read-more-button {
+  background: #22d3ee;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+body.dark-mode .read-more-button {
+  background: #38bdf8;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.read-more-button:hover {
+  background: #1d4ed8;
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
 /* About section */
 #about .about-description, #about .experience-description, #about .supporting-skills {
   max-width: 800px;
@@ -819,6 +849,10 @@ body.dark-mode .newsletter button {
     border-radius: 10px;
     margin-top: 0.5rem;
   }
+  .read-more-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -870,5 +904,9 @@ body.dark-mode .newsletter button {
   .newsletter button {
     width: 100%;
     border-radius: 10px;
+  }
+  .read-more-button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
   }
 }
