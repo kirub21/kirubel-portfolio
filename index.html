@@ -42,7 +42,7 @@
     <div class="hero-text">
       <h1 class="typewriter">Elevate your digital journey with me</h1>
       <p>I craft tailored tech solutions to empower startups, businesses, and communities to achieve measurable impact.</p>
-      <a href="#contact" class="cta-button">Schedule 30 Min Free Consultation</a>
+      <a href="#" class="cta-button" onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/seefconsult/30min' }); return false;">Schedule 30 Min Free Consultation</a>
     </div>
     <div class="hero-image">
 <img src="images/kirubelimage.png" alt="Kirubel Gulilat, IT and Business Enthusiast" />
@@ -50,6 +50,9 @@
     </div>
   </section>
 
+<!-- Calendly Script (Place before </body>) -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
   <section id="services">
     <br><br>
     <h2>📌 My Services</h2>
