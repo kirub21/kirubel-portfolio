@@ -1,0 +1,6 @@
+window.ENV = {
+EMAILJS_USER_ID=vjkQg7Iztg8IWRF3e
+EMAILJS_SERVICE_ID=service_0bgkaj8
+EMAILJS_TEMPLATE_ID=template_f2yezso
+GOOGLE_APPS_SCRIPT_URL=https://script.google.com/macros/s/AKfycbxa1wYCd8WpQvpzSnn7tevvZjWfpw8Tb1JpwtfVPPu0gGmbiOiXA9h7cNtTGnzDIBBL/exec
+};
