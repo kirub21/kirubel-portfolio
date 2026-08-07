@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Personal portfolio of Kirubel Gulilat — IT & Business Enthusiast specializing in digital solutions" />
-  <meta name="keywords" content="Kirubel Gulilat, portfolio, IT, digital marketing, software development, data analytics, Ethiopia" />
+  <meta name="description" content="Portfolio of Kirubel Gulilat — automation, cloud, and financial engineering consultant focused on modern digital solutions." />
+  <meta name="keywords" content="Kirubel Gulilat, portfolio, automation, n8n, cloud, financial engineering, software development, data analytics, Ethiopia" />
   <meta name="author" content="Kirubel Gulilat" />
   <title>Kirubel Gulilat | Tech for Global Impact</title>
-  <script src="./scripts.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script type="module" crossorigin src="/assets/index-G-bAY94F.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CTIyRtnO.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script type="module" crossorigin src="/assets/index-OoXWHXYJ.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-oHAynbzY.css">
 </head>
 <body>
   <header>
@@ -23,15 +25,14 @@
     <label for="nav-toggle" class="nav-toggle-label">
       <i class="fas fa-bars"></i>
     </label>
-    <nav>
+    <nav aria-label="Primary navigation">
       <ul>
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#case-studies">Case Studies</a></li>
-        <li><a href="#contact">Contact</a></li>
         <li>
           <input type="checkbox" id="theme-toggle" />
-          <label for="theme-toggle" class="theme-toggle-label">
+          <label for="theme-toggle" class="theme-toggle-label" aria-label="Toggle theme">
             <i class="fas fa-sun"></i>
             <i class="fas fa-moon"></i>
           </label>
@@ -41,182 +42,144 @@
   </header>
 
   <section class="hero">
-    <div class="hero-text">
-      <h1 class="typewriter">Elevate your digital journey with me</h1>
-      <p>I craft tailored tech solutions to empower startups, businesses, and communities to achieve measurable impact.</p>
-      <a href="#" class="cta-button" onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/seefconsult/30min' }); return false;">Schedule 30 Min Free Consultation</a>
+    <div class="hero-container">
+      <div class="hero-copy">
+        <span class="hero-badge"><i class="fas fa-rocket"></i> Automation • Cloud • Finance</span>
+        <h1 class="typewriter">Build smarter systems for <span class="highlight-text">scale</span> and growth.</h1>
+        <p class="hero-subtitle">
+          I help founders and teams turn messy operations into reliable, scalable systems through automation, cloud architecture, and data-driven engineering.
+        </p>
+        <div class="hero-actions">
+          <a href="https://www.upwork.com/services/product/development-it-kirubel-2010282463354011382?ref=project_share" class="cta-button primary" target="_blank" rel="noopener noreferrer">
+            Book a Consulting Call <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#services" class="cta-button secondary">Explore Services</a>
+        </div>
+      </div>
+
+      <aside class="hero-visual">
+        <article class="hero-card">
+          <img src="/assets/kirubelimage-BZ2odBqN.png" alt="Kirubel Gulilat - automation and cloud consultant" />
+          <div class="hero-card-content">
+            <span class="status-pill">Active: Monitoring 10k+ data points</span>
+            <h2>Full-Stack Builder</h2>
+            <p>Automation • Analytics • Product Delivery</p>
+          </div>
+        </article>
+      </aside>
     </div>
-    <div class="hero-image">
-<img src="/assets/kirubelimage-BZ2odBqN.png" alt="Kirubel Gulilat, IT and Business Enthusiast" />
-      <h2>IT and Business Enthusiast</h2>
+
+    <aside class="hero-marquee" aria-label="Experience across companies">
+      <p class="marquee-title">Trusted across</p>
+      <div class="marquee-track">
+        <div class="logo-pill"><img src="/assets/see-future-BJhBMvOI.png" alt="SEE Future Consult" /></div>
+        <div class="logo-pill"><img src="/assets/uponli_logo-B_NFIn8j.jpg" alt="Uponli" /></div>
+        <div class="logo-pill"><img src="/assets/medlink-PHe075pi.png" alt="Medlink" /></div>
+        <div class="logo-pill"><img src="/assets/uog-C-jKuxYJ.png" alt="University of Gondar" /></div>
+        <div class="logo-pill"><img src="/assets/alx-CrigzrZx.png" alt="ALX" /></div>
+      </div>
+    </aside>
+  </section>
+
+  <section id="services">
+    <h2>📌 My Services</h2>
+    <div class="service-cards">
+      <article class="card">
+        <h3><i class="fas fa-bolt"></i> Automation & n8n Workflows</h3>
+        <p>Build smart automations, API integrations, and AI-assisted workflows that save time and reduce manual effort.</p>
+      </article>
+      <article class="card">
+        <h3><i class="fas fa-cloud"></i> Cloud & Software Solutions</h3>
+        <p>Launch scalable applications and cloud-based systems with modern architecture and reliable performance.</p>
+      </article>
+      <article class="card">
+        <h3><i class="fas fa-chart-pie"></i> Financial Engineering & Analytics</h3>
+        <p>Turn finance and operations data into forecasting, optimization, and process-improvement strategies.</p>
+      </article>
+    </div>
+    <div class="button-container">
+      <a href="services.html" class="read-more-button">Read More</a>
     </div>
   </section>
 
-<!-- Calendly Script (Place before </body>) -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-  <section id="services">
-    <br><br>
-    <h2>📌 My Services</h2>
-    <br>
-    <div class="service-cards">
-      
-      <div class="card">
-        <h3><i class="fas fa-bullhorn"></i> Digital Marketing</h3>
-        <p>From engaging organic content to running targeted ads.</p>
-      </div>
-      <div class="card">
-        <h3><i class="fas fa-code"></i> Software Development</h3>
-        <p>Scalable, market-ready software with clean, efficient code.</p>
-      </div>
-      <div class="card">
-        <h3><i class="fas fa-chart-line"></i> Data Analytics</h3>
-        <p>From designing data structures to delivering insights.</p>
-      </div>
-    </div>
-    <br>
-    <div class="button-container">
-      <a href="#contact" class="read-more-button">Read More</a>
-    </div>
-</section>
-
   <section id="about">
-        <br>    <br>
     <h2>🧠 About Me</h2>
     <div class="about-description">
-      <p>BSc in IT from University of Gondar. Certified in Digital Marketing, Programming, and Data Analysis from Coursera, Udemy, and Udacity.</p>
+      <p>BSc in IT from the University of Gondar with hands-on experience across automation, cloud systems, analytics, finance-adjacent engineering, and product delivery.</p>
     </div>
     <div class="experience-description">
       <h3>Experience</h3>
-      <p>Founder of Medlink and Digital Operations Lead at SEE Future. Passionate about building tech for underserved communities.</p>
+      <p>Full-Stack Developer at Uponli, building stock market data aggregation and predictive analytics solutions. I also bring experience from Medlink and SEE Future in automation, cloud tools, and data-focused problem solving.</p>
     </div>
-    <div class="experience-carousel">
-      <div class="carousel-track">
-  <img src="/assets/see-future-BJhBMvOI.png" alt="SEE Future Consult Logo" />
-  <img src="/assets/icoglabs-D2wX2EpH.png" alt="Icoglabs Logo" />
-  <img src="/assets/medlink-PHe075pi.png" alt="Medlink Logo" />
-  <img src="/assets/uog-C-jKuxYJ.png" alt="University of Gondar Logo" />
-  <img src="/assets/alx-CrigzrZx.png" alt="ALX Ventures Logo" />
-  <img src="/assets/see-future-BJhBMvOI.png" alt="SEE Future Consult Logo" />
-  <img src="/assets/icoglabs-D2wX2EpH.png" alt="Icoglabs Logo" />
-  <img src="/assets/medlink-PHe075pi.png" alt="Medlink Logo" />
-  <img src="/assets/uog-C-jKuxYJ.png" alt="University of Gondar Logo" />
-  <img src="/assets/alx-CrigzrZx.png" alt="ALX Ventures Logo" />
-</div>
 
-    </div>
-    <h3>Skills & Tools</h3>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <i class="fab fa-python"></i>
-        <p>Python</p>
+    <div class="skills-categories">
+      <div class="skills-category">
+        <h4>Data & Workflow Automation</h4>
+        <div class="skills-grid mini">
+          <div class="skill-card"><i class="fas fa-network-wired"></i><p>n8n</p></div>
+          <div class="skill-card"><i class="fab fa-python"></i><p>Python</p></div>
+          <div class="skill-card"><i class="fas fa-database"></i><p>Supabase</p></div>
+          <div class="skill-card"><i class="fas fa-file-code"></i><p>Apps Script</p></div>
+        </div>
       </div>
-      <div class="skill-card">
-        <i class="fab fa-java"></i>
-        <p>Java</p>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-html5"></i>
-        <p>HTML5</p>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-css3-alt"></i>
-        <p>CSS3</p>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-table"></i>
-        <p>Excel</p>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-database"></i>
-        <p>KoboToolbox</p>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-palette"></i>
-        <p>Canva</p>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-image"></i>
-        <p>Adobe</p>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-database"></i>
-        <p>MySQL</p>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-database"></i>
-        <p>NoSQL</p>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-wordpress"></i>
-        <p>WordPress</p>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-cogs"></i>
-        <p>Odoo ERP</p>
-      </div>
-    </div>
-    <p style="text-align: center; font-style: italic; margin-top: 1rem;">
-  — All driven by <strong>problem solving</strong>, <strong>critical thinking</strong>, <strong>communication</strong>, and <strong>AI support</strong>.
-</p>
 
+      <div class="skills-category">
+        <h4>Cloud & Full-Stack</h4>
+        <div class="skills-grid mini">
+          <div class="skill-card"><i class="fas fa-cloud"></i><p>Cloud</p></div>
+          <div class="skill-card"><i class="fab fa-html5"></i><p>HTML5</p></div>
+          <div class="skill-card"><i class="fab fa-css3-alt"></i><p>CSS3</p></div>
+          <div class="skill-card"><i class="fab fa-js"></i><p>JavaScript</p></div>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h4>Financial Tech</h4>
+        <div class="skills-grid mini">
+          <div class="skill-card"><i class="fas fa-coins"></i><p>Forecasting</p></div>
+          <div class="skill-card"><i class="fas fa-chart-line"></i><p>Analytics</p></div>
+          <div class="skill-card"><i class="fas fa-chart-pie"></i><p>Signals</p></div>
+          <div class="skill-card"><i class="fas fa-robot"></i><p>Automation</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <a href="about.html" class="read-more-button">Read More</a>
+    </div>
   </section>
 
   <section id="case-studies">
     <h2>🔍 Case Studies</h2>
-    <div class="case">
-      <div class="case-video">
-        <iframe src="https://www.youtube.com/embed/gJCofF_Xo4Y?si=8lDQs9Iconj3LONV" title="Artisans Ecommerce Android App Preview" frameborder="0" allowfullscreen></iframe>
-        <div class="case-overlay">
-          <p>Designed and developed an Android marketplace for local artisans to sell their products.</p>
+    <div class="case-grid">
+      <article class="case-card">
+        <button class="case-thumb" type="button" data-video="https://www.youtube.com/embed/gJCofF_Xo4Y?autoplay=1">
+          <img loading="lazy" src="https://img.youtube.com/vi/gJCofF_Xo4Y/hqdefault.jpg" alt="OSQAR academic parser preview" />
+          <span class="play-badge"><i class="fas fa-play"></i></span>
+        </button>
+        <div class="case-copy">
+          <h3>OSQAR Data Parser</h3>
+          <p>An academic data parser built to track 903k+ unsolved scientific problems through structured ingestion and research-ready workflows.</p>
         </div>
-      </div>
-      <div>
-        <h3>Artisans Ecommerce Android App</h3>
-        <p>Design & Development</p>
-      </div>
-    </div>
-    <div class="case">
-      <div class="case-video">
-        <iframe src="https://www.youtube.com/embed/9dnfW2dIZYY?si=oTXVxlSC0bkAFcNE" title="Medlink Healthcare Platform Preview" frameborder="0" allowfullscreen></iframe>
-        <div class="case-overlay">
-          <p>Led technical development for a digital health platform connecting rural Ethiopia to healthcare services.</p>
+      </article>
+
+      <article class="case-card">
+        <button class="case-thumb" type="button" data-video="https://www.youtube.com/embed/9dnfW2dIZYY?autoplay=1">
+          <img loading="lazy" src="https://img.youtube.com/vi/9dnfW2dIZYY/hqdefault.jpg" alt="Uponli Whale Tracker preview" />
+          <span class="play-badge"><i class="fas fa-play"></i></span>
+        </button>
+        <div class="case-copy">
+          <h3>Uponli Whale Tracker</h3>
+          <p>A real-time prediction-market monitoring bot for tracking market signals, alerts, and operational intelligence from live data feeds.</p>
         </div>
-      </div>
-      <div>
-        <h3>Medlink Healthcare Startup</h3>
-        <p>Product Lead</p>
-      </div>
+      </article>
     </div>
   </section>
 
-<section id="contact">
-    <h2>📬 Let’s Connect</h2>
-    <div class="contact-container">
-      <div class="contact-info">
-        <p><strong>Email:</strong> <a href="mailto:Kirub@medlink.et">Kirub@medlink.et</a></p>
-        <p><strong>Phone:</strong> <a href="tel:+251947600082">+251 947 600 082</a></p>
-        <p><strong>Address:</strong> Dembel-Bole, Addis Ababa, Ethiopia</p>
-        <div class="contact-map" style="max-width: 400px; margin: 0 auto;">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.496132864439!2d38.78231931475728!3d8.996498993552057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b851c60f1c78d%3A0x4b8d7b0b7b9b0b7e!2sDembel%2C%20Addis%20Ababa%2C%20Ethiopia!5e0!3m2!1sen!2sus!4v1698765432109!5m2!1sen!2sus"
-            width="100%"
-            height="200"
-            style="border:0; border-radius: 10px;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Map of Dembel, Bole, Ethiopia"
-          ></iframe>
-        </div>
-      </div>
-      <form id="contact-form" class="contact-form">
-        <input type="text" name="user_name" placeholder="Your Name" required />
-        <input type="email" name="user_email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
+  <section class="footer-cta">
+    <h3>Ready to turn ideas into systems that actually work?</h3>
+    <p>Let’s build smart automations, resilient cloud solutions, and finance-ready analytics that move your business forward.</p>
+    <a href="https://www.upwork.com/services/product/development-it-kirubel-2010282463354011382?ref=project_share" class="cta-button primary" target="_blank" rel="noopener noreferrer">Book a Consulting Call</a>
   </section>
 
   <footer>
@@ -226,15 +189,20 @@
       <a href="https://x.com/KirubGulilat" aria-label="Visit my Twitter profile"><i class="fab fa-twitter"></i><span>Twitter</span></a>
     </div>
     <div class="newsletter">
-     <form id="newsletter-form" method="POST">
-  <input type="email" name="email" placeholder="Your Email" required />
-  <button type="submit">Subscribe</button>
-</form>
-<div id="form-message" style="margin-top: 10px; color: red;"></div>
-
+      <form id="newsletter-form" novalidate>
+        <input type="email" name="email" placeholder="Your Email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+      <div id="form-message" class="form-message" aria-live="polite"></div>
     </div>
   </footer>
 
+  <div id="case-modal" class="case-modal" aria-hidden="true">
+    <div class="case-modal-dialog">
+      <button class="modal-close" type="button" aria-label="Close preview">&times;</button>
+      <iframe id="case-iframe" title="Project preview" allowfullscreen></iframe>
+    </div>
+  </div>
 
 </body>
 </html>

@@ -1,183 +1,83 @@
-import emailjs from 'emailjs-com';
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+const icon = themeToggle?.querySelector('i');
 
-// ====================
-// Initialize EmailJS
-// ====================
-(() => {
-  emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
-})();
-
-// ====================
-// Contact Form Handling (EmailJS)
-// ====================
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-  contactForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    try {
-      const response = await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        contactForm
-      );
-      console.log('SUCCESS!', response.status, response.text);
-      alert('Message sent successfully!');
-      contactForm.reset();
-    } catch (error) {
-      console.error('FAILED...', error);
-      alert('Failed to send message. Please try again.');
-    }
-  });
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+  body.classList.add('dark-mode');
+  if (icon) {
+    icon.classList.replace('fa-moon', 'fa-sun');
+  }
 }
 
-// ====================
-// Newsletter Form Handling (Google Sheets)
-// ====================
-document.getElementById("newsletter-form").addEventListener("submit", async function (event) {
-  event.preventDefault();
+themeToggle?.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+  const isDark = body.classList.contains('dark-mode');
 
-  const form = event.target;
-  const formData = new FormData(form);
-  const email = formData.get("email"); // lowercase 'email'
-  const messageDiv = document.getElementById("form-message");
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
 
-  // Validate email format
-  if (!email || !validateEmail(email)) {
-    messageDiv.textContent = "❌ Please enter a valid email address.";
+  if (icon) {
+    if (isDark) {
+      icon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+      icon.classList.replace('fa-sun', 'fa-moon');
+    }
+  }
+});
+
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const emailInput = document.getElementById('emailInput');
+  const messageDiv = document.getElementById('form-message');
+  const submitBtn = document.getElementById('submitBtn');
+  const email = emailInput.value.trim();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  messageDiv.className = '';
+
+  if (!emailRegex.test(email)) {
+    messageDiv.textContent = 'Please enter a valid email address.';
+    messageDiv.classList.add('error');
     return;
   }
 
-  try {
-    const response = await fetch(import.meta.env.VITE_WEB_APP_URL, {
-      method: "POST",
-      body: formData
-    });
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
-    if (response.ok) {
-      messageDiv.style.color = "green";
-      messageDiv.textContent = "✅ Subscription successful!";
-      form.reset();
-    } else {
-      messageDiv.style.color = "red";
-      messageDiv.textContent = "❌ Subscription failed. Please try again.";
-    }
-  } catch (error) {
-    console.error(error);
-    messageDiv.style.color = "red";
-    messageDiv.textContent = "⚠️ An error occurred. Please try again.";
-  }
-});
-
-function validateEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email.toLowerCase());
+  setTimeout(() => {
+    messageDiv.textContent = "Thanks! I'll be in touch shortly to discuss your architecture.";
+    messageDiv.classList.add('success');
+    emailInput.value = '';
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = "Let's Talk";
+  }, 1500);
 }
 
+window.handleFormSubmit = handleFormSubmit;
 
-// ====================
-// Mobile Menu Toggle
-// ====================
-const navToggle = document.getElementById('nav-toggle');
-if (navToggle) {
-  navToggle.addEventListener('change', () => {
-    const navMenu = document.querySelector('nav ul');
-    if (navMenu) {
-      navMenu.style.display = navToggle.checked ? 'flex' : 'none';
-    }
-  });
+const modal = document.getElementById('videoModal');
+const iframe = document.getElementById('modalIframe');
+
+function openModal(videoUrl) {
+  iframe.src = videoUrl + (videoUrl.includes('?') ? '&' : '?') + 'autoplay=1';
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
 }
-(function() {
-  emailjs.init(window.ENV.EMAILJS_USER_ID);
-})();
 
-document.getElementById('contact-form')?.addEventListener('submit', function(event) {
-  event.preventDefault();
-  emailjs.sendForm(window.ENV.EMAILJS_SERVICE_ID, window.ENV.EMAILJS_TEMPLATE_ID, this)
-    .then(function(response) {
-      console.log('SUCCESS!', response.status, response.text);
-      alert('Message sent successfully!');
-      this.reset();
-    }, function(error) {
-      console.log('FAILED...', error);
-      alert('Failed to send message. Please try again.');
-    });
-});
+window.openModal = openModal;
 
-window.addEventListener("load", function() {
-  const form = document.getElementById('newsletter-form');
-  if (form) {
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-      const data = new FormData(form);
-      const action = window.ENV.GOOGLE_APPS_SCRIPT_URL;
-      fetch(action, {
-        method: 'POST',
-        body: data,
-      })
-      .then(response => response.json())
-      .then(json => {
-        if (json.result === 'success') {
-          alert("You've subscribed successfully!");
-          form.reset();
-        } else {
-          alert("Subscription failed. Please try again.");
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert("Subscription failed. Please try again.");
-      });
-    });
+function closeModal(e) {
+  if (e.target === modal) {
+    forceCloseModal();
   }
-});
+}
 
-document.getElementById('nav-toggle')?.addEventListener('change', function() {
-  const nav = document.querySelector('nav ul');
-  if (nav) {
-    if (this.checked) {
-      nav.style.display = 'flex';
-    } else {
-      nav.style.display = 'none';
-    }
-  }
-});
+window.closeModal = closeModal;
 
-document.addEventListener('DOMContentLoaded', function() {
-  const sliderTrack = document.querySelector('.slider-track');
-  if (sliderTrack) {
-    const cards = document.querySelectorAll('.certification-card');
-    const cardWidth = cards[0]?.offsetWidth + 20; // Card width + margin
-    let currentIndex = 0;
-    const totalCards = cards.length / 2; // Account for duplicated cards
+function forceCloseModal() {
+  modal.classList.remove('active');
+  iframe.src = '';
+  document.body.style.overflow = '';
+}
 
-    function updateSlider() {
-      sliderTrack.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-      if (currentIndex >= totalCards) {
-        setTimeout(() => {
-          sliderTrack.style.transition = 'none';
-          currentIndex = 0;
-          sliderTrack.style.transform = `translateX(0)`;
-          setTimeout(() => {
-            sliderTrack.style.transition = 'transform 0.5s ease-in-out';
-          }, 50);
-        }, 500);
-      }
-    }
-
-    document.querySelector('.slider-next')?.addEventListener('click', () => {
-      currentIndex++;
-      updateSlider();
-    });
-
-    document.querySelector('.slider-prev')?.addEventListener('click', () => {
-      currentIndex = currentIndex > 0 ? currentIndex - 1 : totalCards - 1;
-      updateSlider();
-    });
-
-    // Auto-slide every 5 seconds
-    setInterval(() => {
-      currentIndex++;
-      updateSlider();
-    }, 5000);
-  }
-});
+window.forceCloseModal = forceCloseModal;
