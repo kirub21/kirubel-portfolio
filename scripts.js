@@ -1,3 +1,7 @@
+// Initialize Vercel Web Analytics
+import { inject } from '@vercel/analytics';
+inject();
+
 const themeToggle = document.getElementById('themeToggle');
 const body = document.body;
 const icon = themeToggle?.querySelector('i');
